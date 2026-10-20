@@ -429,32 +429,31 @@ For images: kind: "image", src: "images/restaurant-post.jpg"
 Category must be: "reels", "motion", or "design".
 Leave src empty until you have a real portfolio file.
 */
-const WORK = [
+cconst WORK = [
   {
-    title: "Restaurant reels",
+    title: "Restaurant cinematic reel",
     category: "reels",
     kind: "video",
-    src: "",
-    poster: "",
-    caption: "Food, atmosphere and the people behind the experience."
+    src: "restaurant-reel.mp4",
+    poster: "reel-cover.jpg",
+    caption: "On-location shoot and cinematic editing."
   },
   {
     title: "Motion graphics",
     category: "motion",
     kind: "video",
-    src: "",
-    poster: "",
-    caption: "Brand messages, brought to life through movement."
+    src: "motion-video.mp4",
+    poster: "motion-cover.jpg",
+    caption: "Brand messages brought to life."
   },
   {
-    title: "Social media design",
+    title: "Restaurant social post",
     category: "design",
     kind: "image",
-    src: "",
-    caption: "Thoughtful visuals for a consistent social presence."
+    src: "restaurant-post.jpg",
+    caption: "Social media design for a local business."
   }
 ];
-
 document.querySelectorAll("[data-brand]").forEach(el => {
   el.textContent = SETTINGS.brand;
 });
