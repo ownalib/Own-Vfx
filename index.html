@@ -178,6 +178,48 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}*{transition:none!important}
+}/* PORTFOLIO: 3 items per row on desktop */
+#portfolio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+
+#portfolio .project {
+  min-width: 0;
+}
+
+/* Reels + motion video: 1080 wide × 1920 high */
+#portfolio .project[data-category="reels"] .media,
+#portfolio .project[data-category="motion"] .media {
+  aspect-ratio: 1080 / 1920;
+  height: auto;
+  background: #102c25;
+}
+
+/* Graphic posts: 1350 wide × 1080 high */
+#portfolio .project[data-category="design"] .media {
+  aspect-ratio: 1350 / 1080;
+  height: auto;
+  background: #e9eddf;
+}
+
+/* Show the whole image/video without cropping */
+#portfolio .media video,
+#portfolio .media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Mobile: one item per row */
+@media (max-width: 650px) {
+  #portfolio {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
 }
 </style>
 </head>
@@ -431,27 +473,49 @@ Leave src empty until you have a real portfolio file.
 */
 const WORK = [
   {
-    title: "Restaurant cinematic reel",
+    title: "Cinematic reel",
     category: "reels",
     kind: "video",
-    src: "restaurant-reel.mp4",
-    poster: "reel-cover.jpg",
-    caption: "On-location shoot and cinematic editing."
+    src: "reel-1.mp4",
+    poster: "",
+    caption: "A closer look at the details."
+  },
+  {
+    title: "Brand reel",
+    category: "reels",
+    kind: "video",
+    src: "reel-2.mp4",
+    poster: "",
+    caption: "Stories brought to life through video."
   },
   {
     title: "Motion graphics",
     category: "motion",
     kind: "video",
-    src: "motion-video.mp4",
-    poster: "motion-cover.jpg",
-    caption: "Brand messages brought to life."
+    src: "motion-1.mp4",
+    poster: "",
+    caption: "Design with movement and purpose."
   },
   {
-    title: "Restaurant social post",
+    title: "Social media design",
     category: "design",
     kind: "image",
-    src: "restaurant-post.png",
-    caption: "Social media design for a local business."
+    src: "post-1.png",
+    caption: "Visual content made for the feed."
+  },
+  {
+    title: "Campaign creative",
+    category: "design",
+    kind: "image",
+    src: "post-2.png",
+    caption: "A clear message. A considered design."
+  },
+  {
+    title: "Brand visual",
+    category: "design",
+    kind: "image",
+    src: "post-3.png",
+    caption: "A consistent identity in every post."
   }
 ];
 document.querySelectorAll("[data-brand]").forEach(el => {
