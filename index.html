@@ -559,7 +559,7 @@ WORK.forEach(item => {
     } else {
       media.controls = true;
       media.playsInline = true;
-      media.preload = "none";
+      media.preload = "metadata";
       media.setAttribute("aria-label", item.title);
       if (item.poster) media.poster = item.poster;
       media.addEventListener("play", () => {
@@ -574,7 +574,14 @@ WORK.forEach(item => {
       note.textContent = "This project could not load. Please try again later.";
       box.replaceChildren(note);
     });
-    media.src = item.src;
+    if (item.kind === "video" && !item.poster) {
+  // Ask the browser to show a frame just after the start.
+  media.src = item.src.includes("#")
+    ? item.src
+    : item.src + "#t=0.1";
+} else {
+  media.src = item.src;
+}
     box.append(media);
   } else {
     const placeholder = document.createElement("div");
