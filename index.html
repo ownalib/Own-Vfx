@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123b31">
+<meta name="description" content="Thoughtful websites for local businesses. Help customers discover your services and get in touch.">
+<title>Your Studio — Websites for Local Businesses</title>
+<style>
+:root{--forest:#123b31;--deep:#09271f;--lime:#dcf59a;--paper:#f7f7ee;--ink:#18372d;--muted:#63756b;--line:#dce1d5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button,a,input,select,textarea{touch-action:manipulation}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #799b39;outline-offset:5px}
+.wrap{width:min(1160px,90%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:var(--deep);color:white;border-bottom:1px solid #ffffff18}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:78px}
+.logo{font-weight:800;letter-spacing:2px;font-size:15px}
+.logo b{color:var(--lime)}
+nav{display:flex;align-items:center;gap:28px;font-size:14px}
+.button{display:inline-flex;justify-content:center;align-items:center;gap:20px;padding:14px 23px;border:0;border-radius:50px;background:var(--lime);color:var(--deep);font-weight:700;cursor:pointer;transition:transform .2s,background .2s}
+.button:hover{background:#e8ffb4;transform:translateY(-2px)}
+.menu{display:none;background:none;border:1px solid #ffffff55;border-radius:8px;padding:8px 13px;color:white}
+.hero{background:var(--deep);color:white;padding:88px 0 90px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:65px;align-items:center}
+.eyebrow{text-transform:uppercase;letter-spacing:2.5px;font-size:11px;font-weight:700;margin:0 0 24px}
+.hero .eyebrow{color:var(--lime)}
+h1,h2,h3,p{margin-top:0}
+h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-2.2px;line-height:1.08}
+h1{font-size:clamp(48px,5.7vw,78px);margin-bottom:25px}
+h1 em{color:var(--lime);font-style:normal}
+.hero-copy{max-width:430px;color:#cad9cf;font-size:17px}
+.actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:30px}
+.text-link{font-size:14px;border-bottom:1px solid #90a699;padding-bottom:4px}
+.hero-note{margin:22px 0 0;font-size:12px;color:#a9c0b2}
+.showcase{position:relative;padding:24px 0 35px}
+.browser{background:#fff7e8;border-radius:12px;overflow:hidden;box-shadow:0 24px 65px #0003;color:#593322}
+.hero .browser{transform:rotate(-5deg)}
+.browser-bar{display:flex;gap:5px;padding:12px;background:#ffffffaa;border-bottom:1px solid #0000000a}
+.browser-bar i{height:6px;width:6px;background:#c7c8ba;border-radius:50%}
+.mock-nav{display:flex;justify-content:space-between;padding:19px 24px;font-size:10px;letter-spacing:1px}
+.mock-content{padding:24px}
+.mock-content h3{font-family:Georgia,serif;font-weight:400;font-size:43px;line-height:1.08;letter-spacing:-1px;max-width:270px}
+.mock-content p{font-size:12px;max-width:245px}
+.mock-pill{display:inline-block;padding:8px 16px;border-radius:25px;background:#923b28;color:white;font-size:10px}
+.food-art{height:160px;background:radial-gradient(ellipse at 60% 50%,#edcc6d 0 17%,#759454 18% 21%,#dca75a 22% 28%,#f4ead4 29% 34%,transparent 35%),linear-gradient(125deg,#9a4d32,#4a3426);position:relative;overflow:hidden}
+.food-art:after{content:"THE LOCAL TABLE";position:absolute;bottom:15px;left:24px;color:#fff9e6;letter-spacing:4px;font-size:10px}
+.floating{position:absolute;right:-15px;bottom:0;padding:21px;background:var(--lime);color:var(--deep);border-radius:12px;box-shadow:0 12px 30px #0002;transform:rotate(4deg);font-size:13px}
+.floating strong{display:block;font-size:19px}
+.audience{padding:23px 0;border-bottom:1px solid var(--line)}
+.audience .wrap{display:flex;gap:24px;justify-content:space-between;align-items:center;flex-wrap:wrap;font-size:13px}
+.audience span{color:var(--muted)}
+section{padding:85px 0}
+h2{font-size:clamp(37px,4.5vw,56px);margin-bottom:22px}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
+.section-top p{max-width:330px;color:var(--muted);font-size:15px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.service{padding:28px 0;border-top:1px solid #bbc5b6}
+.icon{display:grid;place-items:center;width:47px;height:47px;background:#e7edda;border-radius:50%;font-size:22px;margin-bottom:22px}
+.service h3{font-size:19px;margin-bottom:10px}
+.service p{font-size:15px;color:var(--muted)}
+.work{background:#ecefe3}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.project{min-width:0}
+.project .browser{box-shadow:none}
+.project .mock-content{min-height:235px;padding:35px}
+.project .mock-content h3{max-width:340px}
+.salon{background:#eed5c5;color:#6a4035}
+.salon .mock-pill{background:#855a4e}
+.salon-art{height:160px;background:radial-gradient(ellipse at 50% 110%,#9c7665 0 30%,#cfb09a 31% 43%,#ecd4bf 44% 47%,transparent 48%),linear-gradient(110deg,#c6947f,#efdbcd);position:relative}
+.salon-art:after{content:"A LITTLE TIME FOR YOU";position:absolute;bottom:15px;left:24px;font-size:10px;letter-spacing:3px}
+.project-label{display:flex;justify-content:space-between;gap:15px;margin:17px 0 0;font-size:14px}
+.project-label span{font-size:12px;color:var(--muted)}
+.number{color:#77934b;font-size:13px;letter-spacing:2px;display:block;margin-bottom:25px}
+.step{padding:25px 0;border-top:1px solid var(--line)}
+.step h3{font-size:19px}
+.step p{color:var(--muted);font-size:15px}
+.faq{padding-top:0}
+.faq-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:70px}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-weight:700;padding-right:15px}
+details p{font-size:15px;color:var(--muted);margin:15px 0 0}
+.contact{background:var(--forest);color:white}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.contact h2{font-size:clamp(42px,5vw,65px)}
+.contact h2 em{color:var(--lime);font-style:normal}
+.contact-copy{color:#cfddd3;max-width:360px}
+.contact-label{display:block;font-size:13px;margin:0 0 7px}
+.field{margin-bottom:17px}
+input,select,textarea{width:100%;border:1px solid #ffffff42;background:#ffffff09;border-radius:8px;color:white;padding:13px}
+input::placeholder,textarea::placeholder{color:#b6c8be}
+select option{background:var(--forest)}
+textarea{resize:vertical;min-height:100px}
+form .button{width:100%}
+.form-note{font-size:12px;color:#cfddd3;margin:13px 0 0}
+#status{color:var(--lime);font-size:14px;margin-top:13px}
+footer{background:var(--deep);color:#c3d2c8;padding:28px 0;font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.skip{position:absolute;top:-80px;background:var(--lime);padding:12px;z-index:30}
+.skip:focus{top:5px}
+@media(max-width:800px){
+.hero{padding:55px 0 65px}.hero-grid{grid-template-columns:1fr;gap:45px}
+.showcase{max-width:470px;width:95%;margin:auto}
+.hero .browser{transform:rotate(-3deg)}
+.section-top{display:block}.section-top p{max-width:100%}
+.grid3{gap:18px}.grid2{gap:20px}
+.faq-layout,.contact-grid{grid-template-columns:1fr;gap:30px}
+section{padding:60px 0}
+.menu{display:block}
+nav{display:none;position:absolute;left:0;right:0;top:78px;padding:22px 5%;background:var(--deep);flex-direction:column;align-items:stretch;border-bottom:1px solid #ffffff33}
+nav.open{display:flex}
+}
+@media(max-width:560px){
+.grid3,.grid2{grid-template-columns:1fr}
+h1{font-size:53px}
+.audience .wrap{justify-content:center;gap:12px 20px}
+.audience strong{width:100%;text-align:center}
+.hero-copy{font-size:16px}.floating{right:-5px}
+.project-label{font-size:13px}
+.service{padding:22px 0}.service p{margin-bottom:0}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}*{transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#" data-brand>YOUR STUDIO<b>↗</b></a>
+    <button class="menu" type="button" aria-expanded="false"
+      aria-controls="navigation">Menu</button>
+    <nav id="navigation" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#work">Sample work</a>
+      <a href="#process">Our process</a>
+      <a class="button" href="#contact">Let’s talk ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Websites for local businesses</p>
+      <h1>Your business.<br>Your neighbourhood.<br><em>Now online.</em></h1>
+      <p class="hero-copy">A welcoming website that helps nearby customers
+        discover your business, explore your services and get in touch.</p>
+      <div class="actions">
+        <a class="button" href="#contact">Discuss your website ↗</a>
+        <a class="text-link" href="#work">Explore sample work ↓</a>
+      </div>
+      <p class="hero-note">Thoughtful design. Clear information. Easy enquiries.</p>
+    </div>
+    <div class="showcase" aria-label="Restaurant website design concept">
+      <div class="browser">
+        <div class="browser-bar"><i></i><i></i><i></i></div>
+        <div class="mock-nav"><strong>THE LOCAL TABLE</strong><span>MENU · OUR STORY</span></div>
+        <div class="mock-content">
+          <h3>Good food.<br>Great company.</h3>
+          <p>Your favourite flavours. A place that feels like home.</p>
+          <span class="mock-pill">Explore the menu ↗</span>
+        </div>
+        <div class="food-art"></div>
+      </div>
+      <div class="floating"><strong>Your next chapter.</strong>One website away. / Demo concept</div>
+    </div>
+  </div>
+</section>
+
+<div class="audience">
+  <div class="wrap">
+    <strong>Built for your kind of business</strong>
+    <span>Restaurants</span><span>Salons</span><span>Clinics</span><span>Local shops</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-top">
+      <div><p class="eyebrow">Small business. Big possibilities.</p>
+        <h2>A website that works<br>as hard as you do.</h2></div>
+      <p>Give your customers the information they need—and a simple next step.</p>
+    </div>
+    <div class="grid3">
+      <article class="service">
+        <div class="icon" aria-hidden="true">⌖</div>
+        <h3>Help customers find you</h3>
+        <p>Put your location, opening hours and services in one easy-to-find place.</p>
+      </article>
+      <article class="service">
+        <div class="icon" aria-hidden="true">✧</div>
+        <h3>Make a great first impression</h3>
+        <p>A distinctive, mobile-friendly design that feels like your business.</p>
+      </article>
+      <article class="service">
+        <div class="icon" aria-hidden="true">↗</div>
+        <h3>Start more conversations</h3>
+        <p>Make it easy to ask a question through WhatsApp or follow your booking link.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-top">
+      <div><p class="eyebrow">Design possibilities</p><h2>Made for your world.</h2></div>
+      <p>Illustrative concepts showing how different local businesses could look online.</p>
+    </div>
+    <div class="grid2">
+      <article class="project">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i></div>
+          <div class="mock-nav"><strong>THE LOCAL TABLE</strong><span>RESTAURANT</span></div>
+          <div class="mock-content">
+            <h3>Fresh flavours.<br>Familiar faces.</h3>
+            <p>A neighbourhood favourite, ready to welcome you.</p>
+            <span class="mock-pill">Menus · Location · Enquiries</span>
+          </div>
+          <div class="food-art"></div>
+        </div>
+        <p class="project-label"><strong>Restaurant website</strong><span>Demo concept · 01</span></p>
+      </article>
+      <article class="project">
+        <div class="browser salon">
+          <div class="browser-bar"><i></i><i></i><i></i></div>
+          <div class="mock-nav"><strong>STUDIO BLOOM</strong><span>BEAUTY & CARE</span></div>
+          <div class="mock-content">
+            <h3>A little time.<br>Just for you.</h3>
+            <p>A calm space for care, confidence and a fresh start.</p>
+            <span class="mock-pill">Services · Gallery · Bookings</span>
+          </div>
+          <div class="salon-art"></div>
+        </div>
+        <p class="project-label"><strong>Salon website</strong><span>Demo concept · 02</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <p class="eyebrow">No complicated process</p>
+    <h2>From first hello to going live.</h2>
+    <div class="grid3">
+      <article class="step"><span class="number">01 / DISCOVER</span>
+        <h3>Tell us about your business</h3>
+        <p>Share your services, customers and what you want your website to achieve.</p></article>
+      <article class="step"><span class="number">02 / DESIGN</span>
+        <h3>See your website take shape</h3>
+        <p>Review a design built around your brand, with clear content and useful features.</p></article>
+      <article class="step"><span class="number">03 / LAUNCH</span>
+        <h3>Welcome customers online</h3>
+        <p>Publish your website and start sharing it with your local community.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap faq-layout">
+    <div><p class="eyebrow">Good questions</p><h2>Let’s keep<br>things simple.</h2></div>
+    <div>
+      <details><summary>What if I don’t have any website content?</summary>
+        <p>Start with your business name, services, opening hours and contact details.
+          We can plan the remaining content together.</p></details>
+      <details><summary>Will my website work on phones?</summary>
+        <p>Yes. The design adapts to mobile, tablet and desktop screens.</p></details>
+      <details><summary>Can customers contact me through WhatsApp?</summary>
+        <p>Yes. Your website can open a WhatsApp conversation with your business number.</p></details>
+      <details><summary>How much will my website cost?</summary>
+        <p>The scope depends on your pages and features. Share what you need so we can discuss a suitable quote.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Your next step</p>
+      <h2>Local business.<br><em>New possibilities.</em></h2>
+      <p class="contact-copy">Tell us a little about your business.
+        Let’s make your next customer’s first impression a great one.</p>
+    </div>
+    <form id="enquiry">
+      <div class="field">
+        <label class="contact-label" for="name">Your name</label>
+        <input id="name" name="name" autocomplete="name" placeholder="Your name" required maxlength="100">
+      </div>
+      <div class="field">
+        <label class="contact-label" for="business">Business name</label>
+        <input id="business" name="business" autocomplete="organization"
+          placeholder="What’s your business called?" required maxlength="150">
+      </div>
+      <div class="field">
+        <label class="contact-label" for="type">Business type</label>
+        <select id="type" name="type">
+          <option>Restaurant or café</option><option>Salon or beauty studio</option>
+          <option>Clinic</option><option>Retail shop</option>
+          <option>Professional services</option><option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="contact-label" for="message">What do you have in mind?</label>
+        <textarea id="message" name="message" maxlength="1500"
+          placeholder="A new website, a redesign, or something else?"></textarea>
+      </div>
+      <button class="button" type="submit">Continue on WhatsApp ↗</button>
+      <p class="form-note">Opens WhatsApp with your enquiry. You review and send the message there.</p>
+      <p id="status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#" data-brand>YOUR STUDIO</a>
+    <span>Websites for local businesses.</span>
+    <span>© <span id="year"></span></span>
+  </div>
+</footer>
+
+<script>
+// EDIT THESE TWO VALUES BEFORE LAUNCH:
+const SITE = {
+  brand: "YOUR STUDIO",
+  whatsapp: "" // Country code + number, digits only. No +, spaces or leading local 0.
+};
+
+document.querySelectorAll("[data-brand]").forEach(el => {
+  el.textContent = SITE.brand + " ↗";
+});
+document.title = SITE.brand + " — Websites for Local Businesses";
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const menu = document.querySelector(".menu");
+const nav = document.getElementById("navigation");
+function closeMenu() {
+  nav.classList.remove("open");
+  menu.setAttribute("aria-expanded", "false");
+}
+menu.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  menu.setAttribute("aria-expanded", String(open));
+});
+nav.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && nav.classList.contains("open")) {
+    closeMenu();
+    menu.focus();
+  }
+});
+
+document.getElementById("enquiry").addEventListener("submit", event => {
+  event.preventDefault();
+  const status = document.getElementById("status");
+
+  if (!/^[1-9]\d{7,14}$/.test(SITE.whatsapp)) {
+    status.textContent = "WhatsApp enquiries are not available yet. Please check back soon.";
+    return;
+  }
+
+  const fields = new FormData(event.currentTarget);
+  const message = [
+    "Hello! I’d like to discuss a website.",
+    "",
+    "Name: " + String(fields.get("name")).trim(),
+    "Business: " + String(fields.get("business")).trim(),
+    "Type: " + fields.get("type"),
+    "Details: " + (String(fields.get("message")).trim() || "I’d like to learn more.")
+  ].join("\n");
+
+  window.location.assign(
+    "https://wa.me/" + SITE.whatsapp + "?text=" + encodeURIComponent(message)
+  );
+});
+</script>
+</body>
+</html>
