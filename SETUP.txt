@@ -1,0 +1,100 @@
+OWN.VFX — UPDATED WEBSITE
+
+WHAT CHANGED
+- Outcome-focused copy based on your reel: customer benefits first.
+- Genuine urgency around upcoming launches, new menus and seasonal offers.
+- Clear scope/pricing/booking process. No invented limited slots or payment policy.
+- Removed all WhatsApp code, buttons and redirects.
+- Enquiry submits on the website through /api/contact on Vercel.
+- Instagram @own.vfx and email ownaleebhattie1@gmail.com.
+- Your six existing media filenames and dimensions are preserved.
+
+IMPORTANT
+Messages go to ownaleebhattie1@gmail.com via Resend.
+Vercel runs the backend; it is NOT an enquiry inbox or database.
+The email connection below must be configured before the form can work.
+Without configuration the form shows a clear error, never fake success.
+No email account, API key, live deployment or live delivery was configured here.
+
+1. UNZIP AND UPLOAD TO YOUR EXISTING GITHUB REPOSITORY
+- Extract this ZIP on your computer.
+- Open the folder containing index.html, package.json, vercel.json and api.
+- On GitHub open the existing website repository.
+- Add file > Upload files.
+- Drag index.html, package.json, vercel.json and the api folder together.
+- Upload the CONTENTS, not the ZIP or an extra enclosing own-vfx folder.
+- Commit changes to the connected production branch (usually main).
+- If folder upload is awkward, use Add file > Create new file, name it
+  api/contact.js and paste the contents of the supplied contact.js file.
+- Keep your existing reels and PNG posts in the repository; do not delete them.
+
+Expected locations:
+index.html
+package.json
+vercel.json
+api/contact.js
+reel-1.mp4
+reel-2.mp4
+motion-1.mp4
+post-1.png
+post-2.png
+post-3.png
+
+Your media files were not attached here, so this ZIP does not include them.
+
+2. SET UP THE EMAIL PROVIDER
+- Open https://resend.com and create/sign into your account.
+- For testing with onboarding@resend.dev, the recipient must be the email
+  associated with that Resend account. Use ownaleebhattie1@gmail.com for that
+  account if you want to test delivery to this website's fixed recipient.
+- In Resend open API Keys and create a key with sending access.
+- Keep the key private. Do not put it in index.html, GitHub, or chat.
+- For production sending, add and verify a domain you own in Resend's Domains
+  section, then use a sender address from that verified domain.
+- A vercel.app subdomain is not a domain you own for email verification.
+
+3. ADD TWO VERCEL ENVIRONMENT VARIABLES
+Vercel > your existing project > Settings > Environment Variables.
+Add for Production (and Preview only if you want preview submissions):
+
+Name: RESEND_API_KEY
+Value: your private key from Resend
+
+Name: ENQUIRY_FROM_EMAIL
+Value for testing: own.vfx <onboarding@resend.dev>
+Value for production: own.vfx <an-address@your-verified-domain>
+
+The FROM address is not the visitor's email and should not be your Gmail
+address. The visitor's address is set as Reply-To automatically.
+The TO address is already fixed in the backend as ownaleebhattie1@gmail.com.
+
+4. DEPLOY
+- Framework Preset: Other. Root Directory: your repository root (./).
+- Build Command: empty. Output Directory: .
+- The provided package.json selects Node.js 22.x for the API function.
+- After adding environment variables, go to Deployments, open the latest
+  deployment menu and choose Redeploy. Existing deployments do not pick up
+  new environment variables until a new deployment is created.
+- Wait for Ready and visit your normal production website URL.
+
+5. CHECK THE FORM
+- Submit a short enquiry using an email address you control.
+- Success appears on the SAME website, without opening another app.
+- Check ownaleebhattie1@gmail.com inbox and Spam.
+- In Resend > Emails, check delivery status if needed.
+- If it fails, check the key, sender domain and Vercel environment selection.
+- The function logs provider status codes only, not visitor enquiry content.
+- Local double-clicking index.html cannot run /api/contact; test on Vercel.
+
+6. FUTURE CHANGES
+- Edit index.html on GitHub and Commit changes.
+- The connected Vercel production branch deploys automatically.
+- No need to re-import the project.
+- No monthly package or deposit policy has been invented; add your actual
+  booking terms later if you choose.
+
+REFERENCE DOCUMENTATION
+https://vercel.com/docs/functions/runtimes/node-js
+https://vercel.com/docs/environment-variables
+https://resend.com/docs/api-reference/emails/send-email
+https://resend.com/docs/knowledge-base/403-error-resend-dev-domain

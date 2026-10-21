@@ -2,5 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "buildCommand": "",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "functions": {
+    "api/contact.js": {
+      "maxDuration": 30
+    }
+  }
 }
