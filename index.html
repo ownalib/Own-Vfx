@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102c25">
+<meta name="description" content="own.vfx — video editing for YouTubers, Instagram creators and local businesses. Long-form YouTube, Shorts, Reels, ads, graphic design and on-location shoots.">
+<title>own.vfx — Video editing for creators & brands</title>
+<style>
+:root{
+  --dark:#102c25;--green:#193b31;--cream:#f5f4ec;
+  --lime:#d6ed9c;--ink:#20372d;--muted:#687267;--line:#d9ddd0
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+button{font:inherit}
+a{color:inherit;text-decoration:none}
+button,a{touch-action:manipulation}
+button{cursor:pointer}
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  outline:3px solid #85a54c;outline-offset:5px
+}
+.wrap{width:min(1160px,90%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:var(--dark);
+  color:var(--cream);border-bottom:1px solid #ffffff16}
+.nav{min-height:78px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px}
+.brand{font-size:15px;font-weight:800;letter-spacing:2px}
+nav{display:flex;align-items:center;gap:27px;font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;
+  gap:20px;border:0;border-radius:40px;padding:14px 23px;
+  background:var(--lime);color:var(--dark);font-weight:700;font-size:14px;
+  transition:background .2s,transform .2s}
+.btn:hover{background:#e4f7bb;transform:translateY(-2px)}
+.menu{display:none;background:transparent;color:white;
+  border:1px solid #ffffff50;padding:8px 12px;border-radius:7px}
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;
+  font-weight:700;margin:0 0 23px}
+h1,h2,h3,p{margin-top:0}
+h1,h2{font-weight:500;line-height:1.05;letter-spacing:-3px}
+h1{font-size:clamp(48px,6.4vw,84px);margin-bottom:28px}
+h2{font-size:clamp(36px,4.7vw,58px);margin-bottom:24px}
+h3{line-height:1.3;letter-spacing:-.5px}
+em{font-family:Georgia,serif;font-weight:400}
+.hero{padding:78px 0 88px;background:var(--dark);color:var(--cream);
+  overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;
+  align-items:center}
+.hero .eyebrow,.hero em{color:var(--lime)}
+.hero p.description{max-width:470px;color:#c4d0c4;font-size:16px}
+.actions{display:flex;gap:25px;align-items:center;flex-wrap:wrap;margin:30px 0}
+.link{font-size:13px;border-bottom:1px solid #a5b59d;padding-bottom:4px}
+.small{font-size:12px;color:var(--muted)}
+.hero .small{color:#a9bfae}
+.reel-art{position:relative;min-height:490px}
+.frame{position:absolute;width:66%;height:410px;top:10px;left:3%;
+  border-radius:15px;border:1px solid #ffffff35;overflow:hidden;
+  background:linear-gradient(150deg,#7b573a,#2c3021 65%,#162d25);
+  transform:rotate(-8deg);padding:22px;
+  display:flex;flex-direction:column;justify-content:space-between}
+.frame:before{content:"";position:absolute;width:260px;height:260px;
+  border:1px solid #e6dab960;border-radius:50%;top:80px;left:22px;
+  box-shadow:0 0 0 25px #eadbb408,0 0 0 50px #eadbb408}
+.frame.second{left:auto;right:-4%;top:75px;transform:rotate(8deg);
+  background:linear-gradient(135deg,#d7e1ac,#90a977);color:var(--dark)}
+.frame.second:before{border-radius:120px 120px 0 0;border-color:#314b3c40;
+  width:180px;height:230px;left:35px;top:65px}
+.frame span,.frame strong{position:relative}
+.frame span{font-size:9px;letter-spacing:2px}
+.frame strong{font-size:43px;line-height:1;letter-spacing:-2px}
+.frame strong em{color:inherit}
+.art-note{position:absolute;bottom:0;left:0;right:0;text-align:center;
+  font-size:9px;letter-spacing:2px;color:#b9c8b5;text-transform:uppercase}
+.strip{padding:22px 0;border-bottom:1px solid var(--line)}
+.strip .wrap{display:flex;justify-content:space-between;gap:15px;
+  flex-wrap:wrap;font-size:12px}
+.strip span{color:var(--muted)}
+section{padding:90px 0}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:75px;align-items:center}
+.intro p{color:var(--muted);max-width:470px}
+.intro .eyebrow{color:var(--ink)}
+.section-head{display:flex;justify-content:space-between;align-items:end;
+  gap:30px;margin-bottom:35px}
+.section-head p{max-width:320px;color:var(--muted);font-size:14px}
+.work{background:#e9eddf}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:28px}
+.filter{background:transparent;border:1px solid #bfc8b4;
+  color:var(--ink);border-radius:30px;padding:8px 17px;font-size:12px}
+.filter[aria-pressed="true"]{background:var(--dark);color:white;
+  border-color:var(--dark)}
+.portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.project{min-width:0}
+.media{aspect-ratio:9/12;border-radius:10px;overflow:hidden;
+  background:var(--dark);position:relative}
+.media video,.media img{width:100%;height:100%;object-fit:contain;display:block}
+.placeholder{height:100%;padding:25px;display:flex;flex-direction:column;
+  justify-content:space-between;background:linear-gradient(140deg,#385448,#122e25);
+  color:var(--cream)}
+.project:nth-child(2) .placeholder{
+  background:linear-gradient(145deg,#d8c9b1,#a79b82);color:#302f25}
+.project:nth-child(3) .placeholder{
+  background:linear-gradient(145deg,#becb8f,#819a6d);color:var(--dark)}
+.placeholder small{font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.placeholder strong{font-size:38px;line-height:1.1;letter-spacing:-1.5px}
+.placeholder p{font-size:12px;margin:0;opacity:.8}
+.project h3{font-size:15px;margin:16px 0 4px}
+.project>p{font-size:12px;color:var(--muted);margin-bottom:0}
+.media-error{padding:20px;color:white;font-size:13px}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:0 50px}
+.service{padding:30px 0;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:36px 1fr;gap:16px}
+.service>span{font-size:12px;color:#849369}
+.service h3{font-size:22px;margin-bottom:12px}
+.service p{font-size:14px;color:var(--muted);max-width:420px;margin-bottom:0}
+.shoot{background:var(--dark);color:var(--cream)}
+.shoot-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.shoot em{color:var(--lime)}
+.shoot p{color:#bdcdbc}
+.shoot .eyebrow{color:var(--lime)}
+.steps{border-top:1px solid #ffffff30}
+.step{display:flex;gap:25px;border-bottom:1px solid #ffffff30;padding:25px 0}
+.step>span{font-size:12px;color:var(--lime)}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{font-size:13px;margin:0}
+.faq-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:70px}
+details{padding:20px 0;border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-size:15px;font-weight:600}
+details p{font-size:14px;color:var(--muted);margin:15px 0 0}
+.contact{padding-top:0}
+.contact-panel{background:#e5ebd5;padding:55px;border-radius:15px;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact-panel h2{font-size:clamp(38px,4.5vw,57px)}
+.contact-panel p{color:var(--muted);font-size:14px}
+footer{padding:28px 0;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;
+  flex-wrap:wrap;font-size:11px;color:var(--muted)}
+.skip{position:absolute;top:-100px;z-index:30;background:var(--lime);padding:12px}
+.skip:focus{top:0}
+[hidden]{display:none!important}
+@media(max-width:850px){
+  .hero-grid{gap:25px;grid-template-columns:1.1fr .9fr}
+  .frame{height:350px}.reel-art{min-height:440px}
+  .frame strong{font-size:33px}
+  .intro,.shoot-grid,.faq-grid{gap:35px}
+  .contact-panel{padding:35px;gap:30px}
+  .portfolio{gap:15px}.placeholder{padding:18px}
+  .placeholder strong{font-size:29px}
+}
+@media(max-width:650px){
+  h1{font-size:54px;letter-spacing:-2.5px}
+  .hero{padding:48px 0 55px}
+  .hero-grid,.intro,.shoot-grid,.faq-grid,.contact-panel{grid-template-columns:1fr}
+  .hero-grid{gap:20px}.reel-art{width:90%;max-width:390px;margin:auto}
+  .frame{height:340px}.frame strong{font-size:40px}
+  .section-head{display:block}.section-head p{max-width:none}
+  section{padding:60px 0}.services{grid-template-columns:1fr}
+  .portfolio{grid-template-columns:1fr}
+  .media{aspect-ratio:4/5}
+  .placeholder{padding:30px}.placeholder strong{font-size:48px}
+  .contact-panel{padding:28px}
+  .strip .wrap{justify-content:center}
+  .strip strong{width:100%;text-align:center}
+  .menu{display:block}
+  nav{display:none;position:absolute;top:78px;left:0;right:0;
+    background:var(--dark);padding:24px 5%;flex-direction:column;align-items:stretch}
+  nav.open{display:flex}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}*{transition:none!important}
+}/* PORTFOLIO: 3 items per row on desktop */
+#portfolio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+
+#portfolio .project {
+  min-width: 0;
+}
+
+/* Reels + motion video: 1080 wide × 1920 high */
+#portfolio .project[data-category="reels"] .media,
+#portfolio .project[data-category="motion"] .media {
+  aspect-ratio: 1080 / 1920;
+  height: auto;
+  background: #102c25;
+}
+
+/* Graphic posts: 1350 wide × 1080 high */
+#portfolio .project[data-category="design"] .media {
+  aspect-ratio: 1350 / 1080;
+  height: auto;
+  background: #e9eddf;
+}
+
+/* Show the whole image/video without cropping */
+#portfolio .media video,
+#portfolio .media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Mobile: one item per row */
+@media (max-width: 650px) {
+  #portfolio {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+.campaign{background:#e9eddf}
+.campaign .btn{background:var(--dark);color:var(--cream)}
+.direct-contact{display:flex;flex-direction:column;justify-content:center;gap:18px;min-width:0}
+.contact-card{display:flex;flex-direction:column;gap:10px;padding:24px;border:1px solid #becbad;border-radius:12px;transition:background .2s,transform .2s}
+.contact-card:hover{background:#eef3e4;transform:translateY(-2px)}
+.contact-type{font-size:10px;text-transform:uppercase;letter-spacing:1.6px;font-weight:700}
+.contact-card strong{font-size:clamp(16px,1.9vw,23px);line-height:1.4;overflow-wrap:anywhere;letter-spacing:-.4px}
+.contact-card>span:last-child{font-size:12px;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){.contact-card{transition:none}}
+.showreel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-bottom:70px;align-items:start}
+.showreel-grid .media{aspect-ratio:1920 / 1080;height:auto;background:var(--dark)}
+.showreel-grid .media video{width:100%;height:100%;object-fit:contain}
+@media(max-width:650px){.showreel-grid{grid-template-columns:minmax(0,1fr);gap:30px;margin-bottom:50px}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand" data-brand>own.vfx</a>
+    <button class="menu" aria-expanded="false" aria-controls="navigation"
+      type="button">Menu</button>
+    <nav id="navigation" aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#services">Expertise</a>
+      <a href="#process">Process</a>
+      <a class="btn" href="#contact">Hire me ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Video editor for creators & brands</p>
+      <h1>I cut stories<br><em>people watch<br>to the end.</em></h1>
+      <p class="description">
+        Long-form YouTube, creator documentaries, Shorts, Reels and ads. Every edit starts with pacing, then sound, then the graphics that help your story land.
+      </p>
+      <div class="actions">
+        <a href="#contact" class="btn">Let’s work together ↗</a>
+        <a href="#work" class="link">Scroll to the edits ↓</a>
+      </div>
+      <p class="small">For YouTubers, Instagram creators, restaurants and local businesses.</p>
+    </div>
+    <div class="reel-art" aria-label="Decorative content design concepts">
+      <div class="frame">
+        <span>THE DETAILS MATTER</span>
+        <strong>Every<br>frame.<br><em>A reason.</em></strong>
+        <span>YOUTUBE · REELS · ADS</span>
+      </div>
+      <div class="frame second">
+        <span>BUILT FOR THE SCROLL</span>
+        <strong>A little<br>motion.<br><em>A lot of<br>character.</em></strong>
+        <span>DESIGN · EDIT · CREATE</span>
+      </div>
+      <div class="art-note">Visual concepts / not client projects</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <strong>Every format. One timeline.</strong>
+    <span>Long-form YouTube</span><span>Shorts & Reels</span>
+    <span>Ads & motion</span><span>Design & shoots</span>
+  </div>
+</div>
+
+<section>
+  <div class="wrap intro">
+    <div>
+      <p class="eyebrow">Your story. Your audience.</p>
+      <h2>Good footage is the start.<br><em>The edit makes it a story.</em></h2>
+    </div>
+    <div>
+      <p>A YouTube story worth following. A Reel that gets to the point. A local business with something people should see.</p>
+      <p>I shape the strongest moments into a clear narrative—with a considered hook, purposeful pacing and sound that carries the story forward.</p>
+      <p>Already have footage? Send it over. Need content captured at your business? My team can come to you. From the first idea to the final export, the work is built around your audience and your voice.</p>
+      <a class="link" href="#services">Explore the field of expertise ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="section-head showreel-heading">
+      <div><p class="eyebrow">The bigger picture</p>
+        <h2>Two showreels.<br><em>A feel for the cut.</em></h2></div>
+      <p>A look at the pacing, movement and visual detail behind the work.</p>
+    </div>
+    <div id="showreels" class="showreel-grid" aria-label="Showreels"></div>
+
+    <div class="section-head">
+      <div><p class="eyebrow">Featured edits & design</p>
+        <h2>Made for the feed.<br><em>Built around the story.</em></h2></div>
+      <p>Shorts, Reels and ads, cut vertical from the start. Motion graphics and graphic posts that carry the same visual identity.</p>
+    </div>
+    <div class="filters" aria-label="Filter portfolio">
+      <button class="filter" data-filter="all" aria-pressed="true">All work</button>
+      <button class="filter" data-filter="reels" aria-pressed="false">Reels & video</button>
+      <button class="filter" data-filter="motion" aria-pressed="false">Motion</button>
+      <button class="filter" data-filter="design" aria-pressed="false">Graphic design</button>
+    </div>
+    <div id="portfolio" class="portfolio"></div>
+    <noscript>Please enable JavaScript to view the portfolio.</noscript>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow">Field of expertise</p>
+        <h2>Story first.<br><em>Every detail after.</em></h2></div>
+      <p>Long-form stories, vertical content and brand visuals. Creative support for YouTubers, Instagram creators and local businesses.</p>
+    </div>
+    <div class="services">
+      <article class="service"><span>01</span><div><h3>Edit</h3>
+        <p>Long-form storytelling<br>Documentary commentary<br>Shorts & Reels<br>Ads & promos<br>Podcast cuts</p>
+      </div></article>
+      <article class="service"><span>02</span><div><h3>Motion</h3>
+        <p>Kinetic typography<br>Motion graphics<br>Stat & data graphics<br>Chroma keying<br>Speed ramps & slow-mo</p>
+      </div></article>
+      <article class="service"><span>03</span><div><h3>Finish</h3>
+        <p>Color grading<br>Sound design<br>Music edit & mix<br>Captions & subtitles<br>Thumbnail-ready frames</p>
+      </div></article>
+      <article class="service"><span>04</span><div><h3>Design & capture</h3>
+        <p>Social media posts & carousels<br>Brand & campaign visuals<br>Product & restaurant content<br>On-location team shoots<br>Cinematic business reels</p>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="shoot">
+  <div class="wrap shoot-grid">
+    <div>
+      <p class="eyebrow">How a project runs</p>
+      <h2>Your voice.<br>Your audience.<br><em>A considered cut.</em></h2>
+      <p>Your goal, your audience and three videos you love. I learn your channel’s voice or your brand’s style before touching footage.</p>
+      <p>For local businesses, my team can visit your location and capture your products, people and atmosphere before the edit begins.</p>
+      <p>Scope, pricing, delivery dates and review rounds are agreed before work begins.</p>
+      <a href="#contact" class="btn">Discuss your next project ↗</a>
+    </div>
+    <div class="steps">
+      <div class="step"><span>01</span><div><h3>Brief & references</h3>
+        <p>Your goal, your audience and the feeling you want to create. We agree on the deliverables and creative direction.</p></div></div>
+      <div class="step"><span>02</span><div><h3>Selects & rough cut</h3>
+        <p>I pull the strongest takes and build the story order. You see the whole shape early.</p></div></div>
+      <div class="step"><span>03</span><div><h3>Story pass</h3>
+        <p>Tightening for retention. Hooks, pacing, cuts on breath, and every slow minute questioned.</p></div></div>
+      <div class="step"><span>04</span><div><h3>Motion & graphics</h3>
+        <p>Kinetic text, stat cards, supporting visuals and graphics where they help the point land.</p></div></div>
+      <div class="step"><span>05</span><div><h3>Sound & color</h3>
+        <p>Music edit, sound design and a grade that makes your channel or brand feel consistent.</p></div></div>
+      <div class="step"><span>06</span><div><h3>Delivery & cutdowns</h3>
+        <p>Final exports, captions and the agreed formats. Vertical cutdowns can turn a longer story into Shorts and Reels.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="campaign">
+  <div class="wrap intro">
+    <div><p class="eyebrow">Your next upload starts here</p>
+      <h2>Your next story.<br><em>Ready for the timeline.</em></h2></div>
+    <div><p>A channel launch, a new series, a product drop or a seasonal campaign. Bring me in before the deadline so we can plan the footage, edit and graphics around the moment.</p>
+      <a class="btn" href="#contact">Plan my next project ↗</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap faq-grid">
+    <div><p class="eyebrow">Before we start</p>
+      <h2>A few things<br><em>you might ask.</em></h2></div>
+    <div>
+      <details><summary>Do you edit long-form YouTube videos?</summary>
+        <p>Yes. Long-form storytelling, documentary commentary and podcast cuts are part of the work. Share your footage, references and target length so we can discuss the scope.</p></details>
+      <details><summary>Can you create Shorts and Instagram Reels?</summary>
+        <p>Yes. Vertical edits can be built from your footage or cut down from longer videos, with pacing, captions and graphics suited to the format.</p></details>
+      <details><summary>Can your team shoot at my business?</summary>
+        <p>Yes. Share your location and preferred dates so we can confirm availability and plan an on-location shoot.</p></details>
+      <details><summary>Can I book one project or ongoing editing?</summary>
+        <p>Both. We can discuss a single edit, graphic design work or ongoing creative support for your channel, social page or business.</p></details>
+      <details><summary>How do pricing and turnaround work?</summary>
+        <p>They depend on the footage, complexity, deliverables and review rounds. We agree on the scope, quote and timeline before work begins.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap contact-panel">
+    <div>
+      <p class="eyebrow">Hire me</p>
+      <h2>Let’s make<br>something<br><em>worth watching.</em></h2>
+      <p>Tell me about your channel, social page or business. Share your idea, references and timeline, and let’s work out the right cut.</p>
+    </div>
+    <div class="direct-contact">
+      <a class="contact-card" href="https://www.instagram.com/own.vfx/" target="_blank" rel="noopener noreferrer">
+        <span class="contact-type">Message on Instagram ↗</span>
+        <strong>@own.vfx</strong>
+        <span>Share your channel, brand or next creative idea.</span>
+      </a>
+      <a class="contact-card" href="mailto:ownaleebhattie1@gmail.com">
+        <span class="contact-type">Send an email ↗</span>
+        <strong>ownaleebhattie1@gmail.com</strong>
+        <span>Send your brief, references and preferred timeline.</span>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#" data-brand>own.vfx</a>
+    <span>YouTube · Shorts · Reels · Design</span>
+    <span>© <span id="year"></span></span>
+  </div>
+</footer>
+
+<script>
+const SETTINGS = { brand: "own.vfx" };
+
+/*
+ADD YOUR WORK HERE.
+For videos: kind: "video", src: "videos/restaurant-reel.mp4"
+For images: kind: "image", src: "images/restaurant-post.jpg"
+Category must be: "reels", "motion", or "design".
+Leave src empty until you have a real portfolio file.
+*/
+const SHOWREELS = [
+  {
+    title: "Showreel 01",
+    kind: "video",
+    src: "showreel-1.mp4",
+    caption: "Story, pacing and visual detail."
+  },
+  {
+    title: "Showreel 02",
+    kind: "video",
+    src: "showreel-2.mp4",
+    caption: "Movement, sound and the final cut."
+  }
+];
+
+const WORK = [
+  {
+    title: "Cinematic reel",
+    category: "reels",
+    kind: "video",
+    src: "reel-1.mp4",
+    poster: "",
+    caption: "Vertical storytelling, paced around the moment."
+  },
+  {
+    title: "Brand reel",
+    category: "reels",
+    kind: "video",
+    src: "reel-2.mp4",
+    poster: "",
+    caption: "Short-form content for creators and brands."
+  },
+  {
+    title: "Motion graphics",
+    category: "motion",
+    kind: "video",
+    src: "motion-1.mp4",
+    poster: "",
+    caption: "Design with movement and purpose."
+  },
+  {
+    title: "Social media design",
+    category: "design",
+    kind: "image",
+    src: "post-1.png",
+    caption: "Visual content made for the feed."
+  },
+  {
+    title: "Campaign creative",
+    category: "design",
+    kind: "image",
+    src: "post-2.png",
+    caption: "A clear message. A considered design."
+  },
+  {
+    title: "Brand visual",
+    category: "design",
+    kind: "image",
+    src: "post-3.png",
+    caption: "A consistent identity in every post."
+  }
+];
+document.querySelectorAll("[data-brand]").forEach(el => {
+  el.textContent = SETTINGS.brand;
+});
+document.title = SETTINGS.brand + " — Video editing for creators & brands";
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const navigation = document.getElementById("navigation");
+const menu = document.querySelector(".menu");
+function closeMenu() {
+  navigation.classList.remove("open");
+  menu.setAttribute("aria-expanded", "false");
+}
+menu.addEventListener("click", () => {
+  const open = navigation.classList.toggle("open");
+  menu.setAttribute("aria-expanded", String(open));
+});
+navigation.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && navigation.classList.contains("open")) {
+    closeMenu();
+    menu.focus();
+  }
+});
+
+// A branded fallback poster is always available; no separate cover file needed.
+function fallbackPoster(title) {
+  const safeTitle = title.replace(/[&<>"']/g, character => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;"
+  })[character]);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+    <rect width="1920" height="1080" fill="#102c25"/>
+    <circle cx="1730" cy="70" r="530" fill="none" stroke="#d6ed9c" stroke-opacity=".14" stroke-width="2"/>
+    <circle cx="1730" cy="70" r="390" fill="none" stroke="#d6ed9c" stroke-opacity=".14" stroke-width="2"/>
+    <text x="110" y="150" fill="#d6ed9c" font-family="Arial,sans-serif" font-size="40" letter-spacing="7">own.vfx</text>
+    <text x="110" y="495" fill="#f5f4ec" font-family="Arial,sans-serif" font-size="110">${safeTitle}</text>
+    <text x="115" y="585" fill="#bdcdbc" font-family="Georgia,serif" font-style="italic" font-size="48">Every frame. A reason.</text>
+    <circle cx="1600" cy="800" r="95" fill="#d6ed9c"/>
+    <path d="M1578 753L1578 847L1650 800Z" fill="#102c25"/>
+    <text x="115" y="900" fill="#d6ed9c" font-family="Arial,sans-serif" font-size="27" letter-spacing="5">PRESS PLAY</text>
+  </svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
+function setVideoPreview(video, item) {
+  video.poster = item.poster || fallbackPoster(item.title);
+  if (item.poster) return;
+  let captured = false;
+  let userStarted = false;
+  video.addEventListener("play", () => { userStarted = true; });
+  // Seek to a frame without starting playback or turning on audio.
+  video.addEventListener("loadedmetadata", () => {
+    if (!userStarted && Number.isFinite(video.duration) && video.duration > 0) {
+      try { video.currentTime = Math.min(0.3, video.duration / 2); } catch {}
+    }
+  }, { once: true });
+  const capture = () => {
+    if (captured || !video.videoWidth || video.readyState < 2) return;
+    try {
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.min(video.videoWidth, 1280);
+      canvas.height = Math.round(canvas.width * video.videoHeight / video.videoWidth);
+      const context = canvas.getContext("2d");
+      if (!context) return;
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      video.poster = canvas.toDataURL("image/jpeg", 0.85);
+      captured = true;
+    } catch {
+      // Remote files may not allow canvas capture; keep the branded poster.
+    }
+  };
+  video.addEventListener("seeked", capture);
+  video.addEventListener("loadeddata", () => {
+    if (video.currentTime > 0) capture();
+  });
+}
+
+function renderProject(item, container) {
+  const article = document.createElement("article");
+  article.className = "project";
+  if (item.category) article.dataset.category = item.category;
+  const box = document.createElement("div");
+  box.className = "media";
+
+  if (item.src) {
+    const media = document.createElement(item.kind === "image" ? "img" : "video");
+    if (item.kind === "image") {
+      media.alt = item.title;
+      media.loading = "lazy";
+    } else {
+      media.controls = true;
+      media.playsInline = true;
+      media.preload = "metadata";
+      media.setAttribute("aria-label", item.title);
+      setVideoPreview(media, item);
+      media.addEventListener("play", () => {
+        document.querySelectorAll("video").forEach(other => {
+          if (other !== media) other.pause();
+        });
+      });
+    }
+    media.addEventListener("error", () => {
+      const note = document.createElement("p");
+      note.className = "media-error";
+      note.textContent = "This project could not load. Please try again later.";
+      box.replaceChildren(note);
+    });
+    media.src = item.src;
+    box.append(media);
+  } else {
+    const placeholder = document.createElement("div");
+    placeholder.className = "placeholder";
+    const label = document.createElement("small");
+    label.textContent = "Portfolio preview";
+    const title = document.createElement("strong");
+    title.textContent = item.title;
+    const note = document.createElement("p");
+    note.textContent = "Selected work coming soon.";
+    placeholder.append(label, title, note);
+    box.append(placeholder);
+  }
+  const heading = document.createElement("h3");
+  heading.textContent = item.title;
+  const caption = document.createElement("p");
+  caption.textContent = item.caption;
+  article.append(box, heading, caption);
+  container.append(article);
+}
+
+const showreels = document.getElementById("showreels");
+SHOWREELS.forEach(item => renderProject(item, showreels));
+const portfolio = document.getElementById("portfolio");
+WORK.forEach(item => renderProject(item, portfolio));
+
+document.querySelectorAll("[data-filter]").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll("[data-filter]").forEach(other => {
+      other.setAttribute("aria-pressed", String(other === button));
+    });
+    document.querySelectorAll("#portfolio .project").forEach(card => {
+      const visible = button.dataset.filter === "all" ||
+        card.dataset.category === button.dataset.filter;
+      card.hidden = !visible;
+      if (!visible) card.querySelectorAll("video").forEach(video => video.pause());
+    });
+  });
+});
+
+</script>
+</body>
+</html>
