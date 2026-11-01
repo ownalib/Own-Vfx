@@ -43,6 +43,59 @@ body{color:#471b20}h1,h2,.brand{color:#be1220}nav>a:hover,.filter:hover,.link:ho
 .contact-card strong{margin-bottom:5px}.contact-card .contact-type{font-size:9px;color:#8c3e3e}
 @media(max-width:760px){#services{padding-top:50px}.shoot{padding-bottom:35px}}
 .service p{line-height:1.8}.hero .description{max-width:480px}
+/* Restaurant identity packages */
+.branding{border-block:1px solid #be122020;background:linear-gradient(150deg,#fffdf450,transparent 55%);padding:90px 0}
+.branding-heading h2{font-size:clamp(34px,4.1vw,58px)}.branding-heading>p{max-width:270px}
+.package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.package{display:flex;flex-direction:column;min-width:0;padding:28px 25px;border:1px solid #be122026;border-radius:28px;background:linear-gradient(140deg,#fffdf4b3,#fff9e950 55%,#fffdf480);box-shadow:inset 0 1px 0 #fffdf4,0 15px 35px #702b1c08;transition:transform .25s,border-color .25s}
+.package:hover{transform:translateY(-4px);border-color:#be122060}
+.package-featured{border:1px solid #be122075;background:linear-gradient(150deg,#fffdf4e0,#f8e4cfb0);box-shadow:inset 0 1px 0 #fffdf4,0 16px 40px #be122010}
+.package-top{min-height:53px;display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;justify-content:space-between}
+.package-number{font-size:8px;letter-spacing:.12em;color:#86554f;line-height:23px}
+.value-badge{font-size:9px;line-height:1.3;font-weight:650;white-space:nowrap;padding:6px 10px;background:#be1220;color:#faf2df;border:1px solid #a8111d;border-radius:20px;box-shadow:inset 0 1px 0 #ffffff45}
+.package h3{font-size:25px;color:#be1220;margin:8px 0 20px;letter-spacing:-.035em}
+.package-price{font-size:58px;font-weight:560;letter-spacing:-.06em;line-height:1;color:#be1220;display:flex;align-items:baseline;gap:11px}
+.package-price>span{font-size:11px;font-weight:400;letter-spacing:0;color:#775d58}
+.package-description{font-size:12px;line-height:1.75;min-height:64px;margin:22px 0;color:#775d58}
+.package-highlights{list-style:none;padding:22px 0 12px;margin:0;border-top:1px solid #be12201d}
+.package-highlights li{position:relative;padding:0 0 12px 21px;font-size:12px;line-height:1.55;color:#593032}
+.package-highlights li::before{content:'✓';position:absolute;left:0;color:#be1220;font-size:11px}
+.package-highlights a,.package-table a{color:#be1220;text-decoration:underline;text-underline-offset:3px;padding-inline:2px}
+.package-bottom{margin-top:auto;padding-top:18px}.package-timing{font-size:10px;margin:0 0 15px;color:#775d58}
+.package-cta{width:100%;justify-content:space-between;padding-inline:19px;font-size:11px}
+.package:not(.package-featured) .package-cta{color:#be1220;border-color:#be122045;background:linear-gradient(140deg,#fffdf4c0,#faf2df60);box-shadow:inset 0 1px 0 #fff,0 4px 15px #be122006}
+.package-note{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:25px 3px 35px;font-size:11px;color:#775d58}.package-note .link{font-size:11px}
+.package-comparison{padding:22px 25px;border:1px solid #be122026;border-radius:20px;background:#fffdf43d}
+.package-comparison>summary{font-size:14px;color:#be1220;justify-content:flex-start;font-weight:550}
+.package-comparison>summary::after{margin-left:auto;flex-shrink:0}.comparison-hint{font-size:10px;color:#775d58;font-weight:400;margin-left:auto}
+.comparison-scroll{overflow-x:auto;margin-top:24px;border-radius:10px;scrollbar-color:#be122055 #faf2df;outline-offset:5px}
+.package-table{border-collapse:collapse;width:100%;min-width:660px;font-size:11px;text-align:left}
+.package-table caption{text-align:left;font-size:10px;color:#775d58;padding:0 0 17px}
+.package-table th,.package-table td{padding:14px 16px;border-bottom:1px solid #be122018;vertical-align:middle}
+.package-table thead th{font-size:11px;color:#be1220;background:#be122006;font-weight:650}
+.package-table tbody th{font-weight:450;color:#593032;width:37%}.package-table td{color:#775d58}.package-table .builder-col{background:#be122009;color:#8f1723}
+.package-table tbody tr:first-child td{font-weight:650;color:#be1220;font-size:15px}
+.package-details{display:grid;grid-template-columns:.6fr 1.4fr;gap:50px;padding:40px 3px 25px}
+.package-details .eyebrow{font-size:8px;margin-bottom:12px}.package-details h3{font-size:25px;color:#be1220}
+.package-details ul{padding-left:17px;margin:0;color:#775d58;font-size:12px;line-height:1.8}.package-details li{padding-left:5px;margin-bottom:10px}.package-details li::marker{color:#be122060}
+.package-terms{border-top:1px solid #be122022;padding:22px 3px 0}.package-terms p{font-size:11px;line-height:1.8;max-width:1000px;margin:0 0 10px;color:#775d58}.package-terms strong{color:#593032;font-weight:600}#revision-terms{scroll-margin-top:115px}
+@media(min-width:761px) and (max-width:1080px){.package{padding:24px 19px}.package-top{min-height:75px;display:block}.value-badge{display:table;margin-top:5px}.package h3{font-size:23px}.package-price{font-size:51px}.package-description{min-height:85px}.package-highlights li{font-size:11px}}
+@media(max-width:760px){.branding{padding:60px 0}.package-grid{grid-template-columns:minmax(0,1fr);gap:20px}.package{padding:28px;border-radius:25px}.package-top{min-height:35px}.package h3{margin-bottom:18px;font-size:28px}.package-description{min-height:0;max-width:420px;margin:20px 0;font-size:13px}.package-price{font-size:58px}.package-highlights li{font-size:13px}.package-bottom{padding-top:12px}.package-cta{font-size:12px}.package-note{margin:24px 0;gap:13px;align-items:flex-start;flex-direction:column}.package-comparison{padding:20px 18px}.comparison-hint{display:none}.package-details{grid-template-columns:1fr;gap:8px;padding-top:32px}.package-details h3{margin-bottom:12px}.package-terms p{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.package{transition:none}.package:hover{transform:none}}
+
+
+/* Monthly animation is the primary restaurant offer. */
+.animation-packages{background:radial-gradient(ellipse at 95% 10%,#be122008,transparent 55%),linear-gradient(150deg,#fffdf470,transparent 55%)}
+.plan-types{position:static;display:inline-flex;flex-direction:row;align-items:center;flex-wrap:wrap;gap:5px;margin:0 0 35px;padding:5px;background:#fffdf470;border:1px solid #be122026;border-radius:30px;box-shadow:inset 0 1px 0 #fffdf4;backdrop-filter:none;-webkit-backdrop-filter:none}
+.plan-types a{font-size:11px;padding:10px 17px;border-radius:25px;color:#775d58}.plan-types .plan-type-primary{background:#be1220;color:#faf2df;box-shadow:inset 0 1px 0 #ffffff40}
+.animation-volume{display:flex;align-items:center;gap:15px;padding:18px 0;border-top:1px solid #be12201d}
+.animation-volume strong{font-size:44px;font-weight:550;letter-spacing:-.06em;line-height:1;color:#be1220}.animation-volume span{font-size:11px;line-height:1.5;color:#775d58}
+.animation-packages .package-highlights{padding-top:18px}.animation-packages .package-bottom{padding-top:20px}
+.branding-secondary-note{font-size:12px;margin:-20px 0 32px;color:#775d58}
+#branding .branding-heading h2{font-size:clamp(32px,3.5vw,48px)}
+#animation-revision-terms{scroll-margin-top:115px}
+@media(max-width:760px){.plan-types{position:static;inset:auto;display:inline-flex;flex-direction:row;padding:4px;margin-bottom:30px;border-radius:25px;background:#fffdf470;box-shadow:inset 0 1px 0 #fffdf4}.plan-types a{font-size:10px;padding:9px 13px}.branding-secondary-note{margin-top:-10px;font-size:11px}}
+
 </style>
 </head>
 <body>
@@ -55,6 +108,7 @@ body{color:#471b20}h1,h2,.brand{color:#be1220}nav>a:hover,.filter:hover,.link:ho
     <nav id="navigation" aria-label="Main navigation">
       <a href="#work">Work</a>
       <a href="#services">Expertise</a>
+      <a href="#animation-packages">Packages</a>
       <a href="#process">Process</a>
       <a class="btn" href="#contact">Hire me ↗</a>
     </nav>
@@ -69,7 +123,7 @@ body{color:#471b20}h1,h2,.brand{color:#be1220}nav>a:hover,.filter:hover,.link:ho
       <h1>Your story.<br><em>Worth<br>watching.</em></h1>
       <p class="description">I turn your footage and ideas into videos worth staying for—and visuals worth remembering. YouTube edits, Instagram content and brand design, made around your audience.</p>
       <div class="actions">
-        <a href="#contact" class="btn">Let’s talk about your project ↗</a>
+        <a href="#animation-packages" class="btn">Explore restaurant plans ↗</a>
         <a href="#work" class="link">Explore my work ↓</a>
       </div>
     </div>
@@ -120,6 +174,74 @@ body{color:#471b20}h1,h2,.brand{color:#be1220}nav>a:hover,.filter:hover,.link:ho
 
 
 
+<section id="animation-packages" class="branding animation-packages" aria-labelledby="animation-title">
+ <div class="wrap">
+  <nav class="plan-types" aria-label="Restaurant package types"><a href="#animation-packages" class="plan-type-primary">Monthly animation ↙</a><a href="#branding">One-time branding ↓</a></nav>
+  <div class="section-head branding-heading">
+   <div><p class="eyebrow">Monthly content for your restaurant</p><h2 id="animation-title">Restaurant<br><em>Animation Packages</em></h2></div>
+   <p>Fresh promos for your food, deals, and special offers.</p>
+  </div>
+  <div class="package-grid"><article class="package " aria-labelledby="animation-starter">
+ <div class="package-top"><span class="package-number">01 / STAY ACTIVE</span></div>
+ <h3 id="animation-starter">Starter</h3>
+ <div class="package-price">$99 <span>/ month</span></div>
+ <p class="package-description">Keep your page active with one animated promotion per week.</p>
+ <div class="animation-volume"><strong>4</strong><span>animated video posts<br>every month</span></div>
+ <ul class="package-highlights"><li>Under 30 seconds per video</li><li>Feed + Story versions</li><li>Your branding + order CTA</li><li>Unlimited revisions<a href="#animation-revision-terms" aria-label="Read animation revision terms">*</a></li></ul>
+ <div class="package-bottom"><a class="btn package-cta" href="mailto:ownaleebhattie1@gmail.com?subject=Restaurant%20Animation%20%E2%80%94%20Starter%20%E2%80%94%20%2499%2Fmonth&amp;body=Hi%20own.vfx%2C%0A%0AI%E2%80%99m%20interested%20in%20the%20Starter%20restaurant%20animation%20package%20%28%2499%2Fmonth%29.%0A%0ARestaurant%20name%3A%0AInstagram%20page%3A%0APromotions%20to%20feature%3A%0APreferred%20start%20date%3A%0A">Choose Starter <span aria-hidden="true">↗</span></a></div>
+ </article><article class="package package-featured" aria-labelledby="animation-growth">
+ <div class="package-top"><span class="package-number">02 / BUILD MOMENTUM</span><span class="value-badge">★ Best Value</span></div>
+ <h3 id="animation-growth">Growth</h3>
+ <div class="package-price">$179 <span>/ month</span></div>
+ <p class="package-description">Get twice the videos for just $80 more, plus content planning and two matching static posts.</p>
+ <div class="animation-volume"><strong>8</strong><span>animated video posts<br>every month</span></div>
+ <ul class="package-highlights"><li>Under 30 seconds per video</li><li>Feed + Story versions</li><li>Your branding + order CTA</li><li>Monthly content planning</li><li>2 matching static posts</li><li>Unlimited revisions<a href="#animation-revision-terms" aria-label="Read animation revision terms">*</a></li></ul>
+ <div class="package-bottom"><a class="btn package-cta" href="mailto:ownaleebhattie1@gmail.com?subject=Restaurant%20Animation%20%E2%80%94%20Growth%20%E2%80%94%20%24179%2Fmonth&amp;body=Hi%20own.vfx%2C%0A%0AI%E2%80%99m%20interested%20in%20the%20Growth%20restaurant%20animation%20package%20%28%24179%2Fmonth%29.%0A%0ARestaurant%20name%3A%0AInstagram%20page%3A%0APromotions%20to%20feature%3A%0APreferred%20start%20date%3A%0A">Choose Growth <span aria-hidden="true">↗</span></a></div>
+ </article><article class="package " aria-labelledby="animation-premium">
+ <div class="package-top"><span class="package-number">03 / KEEP IT FRESH</span></div>
+ <h3 id="animation-premium">Premium</h3>
+ <div class="package-price">$499 <span>/ month</span></div>
+ <p class="package-description">More content and creative support for restaurants running frequent promotions.</p>
+ <div class="animation-volume"><strong>16</strong><span>animated video posts<br>every month</span></div>
+ <ul class="package-highlights"><li>Under 30 seconds per video</li><li>Feed + Story versions</li><li>Your branding + order CTA</li><li>Monthly content planning</li><li>8 matching static posts</li><li>Promotional captions</li><li>Priority delivery</li><li>Unlimited revisions<a href="#animation-revision-terms" aria-label="Read animation revision terms">*</a></li></ul>
+ <div class="package-bottom"><a class="btn package-cta" href="mailto:ownaleebhattie1@gmail.com?subject=Restaurant%20Animation%20%E2%80%94%20Premium%20%E2%80%94%20%24499%2Fmonth&amp;body=Hi%20own.vfx%2C%0A%0AI%E2%80%99m%20interested%20in%20the%20Premium%20restaurant%20animation%20package%20%28%24499%2Fmonth%29.%0A%0ARestaurant%20name%3A%0AInstagram%20page%3A%0APromotions%20to%20feature%3A%0APreferred%20start%20date%3A%0A">Choose Premium <span aria-hidden="true">↗</span></a></div>
+ </article></div>
+  <div class="package-note"><span>50% upfront · 50% before final watermark-free delivery</span><a class="link" href="https://www.instagram.com/own.vfx/" target="_blank" rel="noopener noreferrer">Prefer Instagram? Message @own.vfx ↗</a></div>
+  <details class="package-comparison">
+   <summary>Compare animation plans <span class="comparison-hint">Every inclusion, side by side</span></summary>
+   <div class="comparison-scroll" tabindex="0" role="region" aria-label="Animation package comparison; scroll horizontally on smaller screens">
+    <table class="package-table"><caption>Restaurant animation packages — monthly comparison</caption>
+     <thead><tr><th scope="col">What’s included</th><th scope="col">Starter</th><th scope="col" class="builder-col">Growth ★</th><th scope="col">Premium</th></tr></thead>
+     <tbody><tr><th scope="row">Monthly price</th><td class="">$99</td><td class="builder-col">$179</td><td class="">$499</td></tr>
+<tr><th scope="row">Animated video posts</th><td class="">4</td><td class="builder-col">8</td><td class="">16</td></tr>
+<tr><th scope="row">Duration per video</th><td class="">Under 30 seconds</td><td class="builder-col">Under 30 seconds</td><td class="">Under 30 seconds</td></tr>
+<tr><th scope="row">Feed + Story versions</th><td class="">Included</td><td class="builder-col">Included</td><td class="">Included</td></tr>
+<tr><th scope="row">Your branding + order CTA</th><td class="">Included</td><td class="builder-col">Included</td><td class="">Included</td></tr>
+<tr><th scope="row">Unlimited revisions<a href="#animation-revision-terms" aria-label="Read animation revision terms">*</a></th><td class="">Included</td><td class="builder-col">Included</td><td class="">Included</td></tr>
+<tr><th scope="row">Monthly content planning</th><td class="">Not included</td><td class="builder-col">Included</td><td class="">Included</td></tr>
+<tr><th scope="row">Matching static posts</th><td class="">Not included</td><td class="builder-col">2</td><td class="">8</td></tr>
+<tr><th scope="row">Promotional captions</th><td class="">Not included</td><td class="builder-col">Not included</td><td class="">Included</td></tr>
+<tr><th scope="row">Priority delivery</th><td class="">Not included</td><td class="builder-col">Not included</td><td class="">Included</td></tr>
+</tbody>
+    </table>
+   </div>
+  </details>
+  <div class="package-details" aria-labelledby="animation-details-title">
+   <div><p class="eyebrow">How monthly delivery works</p><h3 id="animation-details-title">Package details</h3></div>
+   <ul>
+    <li>Restaurant provides food photos or footage, logo, and confirmed offer details.</li>
+    <li>Each unique video includes Feed and Story versions.</li>
+    <li>50% upfront; 50% before final watermark-free delivery.</li>
+    <li>Content is delivered throughout the month on an agreed schedule.</li>
+   </ul>
+  </div>
+  <div class="package-terms">
+   <p id="animation-revision-terms"><strong>*Unlimited revisions</strong> apply to the original brief, with requests submitted within 7 days of each first draft. New concepts, changed offers, and complete remakes are quoted separately.</p>
+   <p>Filming, complex 3D animation, posting, ad management, paid stock assets, and editable source files are not included.</p>
+  </div>
+ </div>
+</section>
+
 <section id="services">
   <div class="wrap">
     <div class="section-head"><div><p class="eyebrow">What I do</p><h2>Your ideas.<br><em>Made visual.</em></h2></div><p>From one standout edit to ongoing content. Creative support for YouTubers, Instagram creators, restaurants and local businesses.</p></div>
@@ -128,6 +250,102 @@ body{color:#471b20}h1,h2,.brand{color:#be1220}nav>a:hover,.filter:hover,.link:ho
       <article class="service"><span>02</span><div><h3>Motion graphics</h3><p>Animated text, product visuals and graphics that make your message easier to follow—and harder to miss.</p></div></article>
       <article class="service"><span>03</span><div><h3>Graphic design</h3><p>Posts, carousels and campaign visuals that give your page a consistent look and your message room to stand out.</p></div></article>
       <article class="service"><span>04</span><div><h3>On-location shoots</h3><p>Need footage? My team comes to your business to capture your products, people and atmosphere—then I bring it together in the edit.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="branding" class="branding" aria-labelledby="branding-title">
+  <div class="wrap">
+    <div class="section-head branding-heading">
+      <div><p class="eyebrow">Need a brand identity too?</p>
+        <h2 id="branding-title">Restaurant Branding<br><em>&amp; Identity Packages</em></h2></div>
+      <p>Build a consistent, recognizable look for your restaurant.</p>
+    </div>
+    <p class="branding-secondary-note">A separate, one-time service for your restaurant’s visual identity.</p>
+    <div class="package-grid">
+      <article class="package" aria-labelledby="starter-title">
+        <div class="package-top"><span class="package-number">01 / THE ESSENTIALS</span></div>
+        <h3 id="starter-title">Brand Starter</h3>
+        <div class="package-price">$149 <span>one-time</span></div>
+        <p class="package-description">The essentials for a clean, consistent restaurant identity.</p>
+        <ul class="package-highlights">
+          <li>1 initial logo concept</li><li>Final logo, colours &amp; fonts</li>
+          <li>Logo variations + profile image</li><li>1-page brand style guide</li>
+          <li>2 editable social media templates</li><li>Unlimited revisions<a href="#revision-terms" aria-label="Read unlimited revision terms">*</a></li>
+        </ul>
+        <div class="package-bottom"><p class="package-timing">Estimated 5–7 business days</p>
+          <a class="btn package-cta" href="mailto:ownaleebhattie1@gmail.com?subject=Brand%20Starter%20%24149%20%E2%80%94%20Restaurant%20branding">Enquire about Starter <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      <article class="package package-featured" aria-labelledby="builder-title">
+        <div class="package-top"><span class="package-number">02 / THE VISUAL FOUNDATION</span><span class="value-badge">★ Best Value</span></div>
+        <h3 id="builder-title">Brand Builder</h3>
+        <div class="package-price">$299 <span>one-time</span></div>
+        <p class="package-description">A complete visual foundation, with a logo, social templates, and a branded menu.</p>
+        <ul class="package-highlights">
+          <li>2 initial logo concepts</li><li>Final logo, colours &amp; fonts</li>
+          <li>Logo variations + profile image</li><li>Brand style guide: up to 6 pages</li>
+          <li>6 editable social media templates</li><li>Menu design: up to 2 pages</li>
+          <li>Unlimited revisions<a href="#revision-terms" aria-label="Read unlimited revision terms">*</a></li>
+        </ul>
+        <div class="package-bottom"><p class="package-timing">Estimated 10–14 business days</p>
+          <a class="btn package-cta" href="mailto:ownaleebhattie1@gmail.com?subject=Brand%20Builder%20%24299%20%E2%80%94%20Restaurant%20branding">Enquire about Builder <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      <article class="package" aria-labelledby="complete-title">
+        <div class="package-top"><span class="package-number">03 / THE FULL IDENTITY</span></div>
+        <h3 id="complete-title">Complete Brand</h3>
+        <div class="package-price">$899 <span>one-time</span></div>
+        <p class="package-description">A broader identity system covering your brand direction, menu, packaging, and social presence.</p>
+        <ul class="package-highlights">
+          <li>3 initial logo concepts</li><li>Final logo, colours &amp; fonts</li>
+          <li>Logo variations + profile image</li><li>Brand style guide: up to 15 pages</li>
+          <li>12 editable social media templates</li><li>Menu design: up to 6 pages</li>
+          <li>Packaging design: 3 items</li><li>Brand positioning + tone of voice</li>
+          <li>Unlimited revisions<a href="#revision-terms" aria-label="Read unlimited revision terms">*</a></li>
+        </ul>
+        <div class="package-bottom"><p class="package-timing">Estimated 15–20 business days</p>
+          <a class="btn package-cta" href="mailto:ownaleebhattie1@gmail.com?subject=Complete%20Brand%20%24899%20%E2%80%94%20Restaurant%20branding">Enquire about Complete <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </div>
+    <div class="package-note"><span>50% upfront · 50% before final file delivery</span><a class="link" href="https://www.instagram.com/own.vfx/" target="_blank" rel="noopener noreferrer">Prefer Instagram? Message @own.vfx ↗</a></div>
+    <details class="package-comparison">
+      <summary>Compare every detail <span class="comparison-hint">All three packages, side by side</span></summary>
+      <div class="comparison-scroll" tabindex="0" role="region" aria-label="Package comparison; scroll horizontally on smaller screens">
+        <table class="package-table">
+          <caption>Restaurant branding packages — full comparison</caption>
+          <thead><tr><th scope="col">What’s included</th><th scope="col">Brand Starter</th><th scope="col" class="builder-col">Brand Builder ★</th><th scope="col">Complete Brand</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">One-time price</th><td>$149</td><td class="builder-col">$299</td><td>$899</td></tr>
+            <tr><th scope="row">Initial logo concepts</th><td>1</td><td class="builder-col">2</td><td>3</td></tr>
+            <tr><th scope="row">Final logo identity</th><td>Included</td><td class="builder-col">Included</td><td>Included</td></tr>
+            <tr><th scope="row">Brand colour palette</th><td>Included</td><td class="builder-col">Included</td><td>Included</td></tr>
+            <tr><th scope="row">Font selection</th><td>Included</td><td class="builder-col">Included</td><td>Included</td></tr>
+            <tr><th scope="row">Logo variations + profile image</th><td>Included</td><td class="builder-col">Included</td><td>Included</td></tr>
+            <tr><th scope="row">Brand style guide</th><td>1 page</td><td class="builder-col">Up to 6 pages</td><td>Up to 15 pages</td></tr>
+            <tr><th scope="row">Editable social media templates</th><td>2</td><td class="builder-col">6</td><td>12</td></tr>
+            <tr><th scope="row">Menu design</th><td>Not included</td><td class="builder-col">Up to 2 pages</td><td>Up to 6 pages</td></tr>
+            <tr><th scope="row">Packaging design</th><td>Not included</td><td class="builder-col">Not included</td><td>3 items</td></tr>
+            <tr><th scope="row">Brand positioning + tone of voice</th><td>Not included</td><td class="builder-col">Not included</td><td>Included</td></tr>
+            <tr><th scope="row">Unlimited revisions<a href="#revision-terms" aria-label="Read unlimited revision terms">*</a></th><td>Included</td><td class="builder-col">Included</td><td>Included</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <div class="package-details" aria-labelledby="project-details-title">
+      <div><p class="eyebrow">Before we begin</p><h3 id="project-details-title">Project details</h3></div>
+      <ul>
+        <li>One initial logo direction is selected for refinement. One final identity is delivered.</li>
+        <li>Final logo files include SVG, PDF, and transparent PNG. Editable files for included designs are provided.</li>
+        <li>Restaurant supplies its name, menu copy, prices, and food photography.</li>
+        <li>50% upfront; 50% before final file delivery.</li>
+        <li>Estimated timeline: Starter 5–7, Builder 10–14, Complete 15–20 business days, depending on feedback.</li>
+      </ul>
+    </div>
+    <div class="package-terms">
+      <p id="revision-terms"><strong>*Unlimited revisions</strong> cover refinements to the selected direction within the original brief, requested within 14 days of the first presentation. New directions or added deliverables are quoted separately.</p>
+      <p>Printing, paid fonts, stock assets, naming, trademark searches, and website design are not included.</p>
     </div>
   </div>
 </section>
