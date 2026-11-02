@@ -53,6 +53,9 @@ footer{border-top:1px solid #ffffff12;padding:34px 0;font-size:13px;color:#86868
 .js .rv{opacity:0;transform:translateY(50px);filter:blur(8px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}.js .rv.in{opacity:1;transform:none;filter:none}
 @media(max-width:900px){.hero h1{font-size:clamp(38px,11vw,64px)}.cards,.plans,.assure{grid-template-columns:1fr}.hero{padding:84px 0 56px}.hero-grid{grid-template-columns:1fr;text-align:center}.hero .sub{margin-inline:auto}.cta{justify-content:center}.stage{width:min(270px,64vw);margin-top:20px}.phone{max-height:none}.c1{left:-18%}.c2{right:-16%}.c3{display:none}section{padding:90px 0}.menu{display:block}nav{display:none;position:absolute;top:52px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:18px;padding:24px 5%;background:#000000f2;border-bottom:1px solid var(--line)}nav.open{display:flex}.card{min-height:380px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none;filter:none}}
+
+#work .filters{border-radius:24px;gap:6px;max-width:100%}#work .filter{min-height:44px}#work .filter:focus-visible{outline:2px solid #fff;outline-offset:3px}#portfolio .project[hidden]{display:none!important}
+@media(min-width:760px){#portfolio{justify-content:center}}
 </style></head><body>
 <a href="#main" class="skip">Skip to content</a>
 <header><div class="wrap nav"><a href="#" class="brand" data-brand>own.vfx</a><button class="menu" aria-expanded="false" aria-controls="navigation" type="button">Menu</button>
@@ -70,8 +73,8 @@ footer{border-top:1px solid #ffffff12;padding:34px 0;font-size:13px;color:#86868
 </div></section>
 <div class="strip" aria-hidden="true"><div><span>Hooks</span><span>Cuts</span><span>Motion</span><span>Sound</span><span>Colour</span><span>Stories</span><span>Hooks</span><span>Cuts</span><span>Motion</span><span>Sound</span><span>Colour</span><span>Stories</span></div></div>
 <section class="stmt"><div class="wrap"><p id="stmt">We don’t just edit. We find the angle, shape the story and keep your business in the feed.</p></div></section>
-<section id="work" style="padding-top:40px"><div class="wrap head rv"><h2>See it.<br><span class="g">In motion.</span></h2><p>Real Reels, motion graphics and supporting posts. Press play.</p>
-<div class="filters" aria-label="Filter portfolio" style="margin:30px 0 0"><button class="filter" data-filter="video" aria-pressed="true">Video work</button><button class="filter" data-filter="reels" aria-pressed="false">Reels</button><button class="filter" data-filter="motion" aria-pressed="false">Motion</button><button class="filter" data-filter="design" aria-pressed="false">Supporting posts</button></div></div>
+<section id="work" style="padding-top:40px"><div class="wrap head rv"><h2>See it.<br><span class="g">In motion.</span></h2><p>Explore our Reels by industry. Choose a category and press play.</p>
+<div class="filters" aria-label="Choose an industry" style="margin:30px 0 0"><button type="button" class="filter" data-filter="real-estate" aria-controls="portfolio" aria-pressed="true">Real Estate</button><button type="button" class="filter" data-filter="med-spas" aria-controls="portfolio" aria-pressed="false">Med Spas</button><button type="button" class="filter" data-filter="automotive" aria-controls="portfolio" aria-pressed="false">Car Dealerships & Automotive</button><button type="button" class="filter" data-filter="restaurants" aria-controls="portfolio" aria-pressed="false">Restaurants</button></div></div>
 <div id="portfolio" class="portfolio"></div><noscript>Please enable JavaScript to view the portfolio.</noscript></section>
 <section id="approach"><div class="wrap"><div class="head rv"><h2>From footage.<br><span class="g">To your feed.</span></h2></div>
 <div class="cards">
@@ -106,14 +109,74 @@ footer{border-top:1px solid #ffffff12;padding:34px 0;font-size:13px;color:#86868
 <script>
 document.documentElement.classList.add("js");
 const SETTINGS={brand:"own.vfx"};
-/* ADD YOUR WORK HERE. Videos: kind:"video", src:"videos/x.mp4". Images: kind:"image", src:"images/x.jpg". Category: "reels","motion","design". */
+/* Upload these MP4 files beside index.html. Each industry has two slots.
+Missing videos display a Coming soon placeholder until uploaded. */
 const WORK=[
-{title:"Cinematic reel",category:"reels",kind:"video",src:"reel-1.mp4",poster:"",caption:""},
-{title:"Brand reel",category:"reels",kind:"video",src:"reel-2.mp4",poster:"",caption:""},
-{title:"Motion graphics",category:"motion",kind:"video",src:"motion-1.mp4",poster:"",caption:""},
-{title:"Social media design",category:"design",kind:"image",src:"post-1.png",caption:""},
-{title:"Campaign creative",category:"design",kind:"image",src:"post-2.png",caption:""},
-{title:"Brand visual",category:"design",kind:"image",src:"post-3.png",caption:""}];
+  {
+    "title": "Real estate reel 01",
+    "category": "real-estate",
+    "kind": "video",
+    "src": "reel-2.mp4",
+    "poster": "",
+    "caption": ""
+  },
+  {
+    "title": "Real estate reel 02",
+    "category": "real-estate",
+    "kind": "video",
+    "src": "real-estate-2.mp4",
+    "poster": "",
+    "caption": ""
+  },
+  {
+    "title": "Med spa reel 01",
+    "category": "med-spas",
+    "kind": "video",
+    "src": "med-spa-1.mp4",
+    "poster": "",
+    "caption": ""
+  },
+  {
+    "title": "Med spa reel 02",
+    "category": "med-spas",
+    "kind": "video",
+    "src": "med-spa-2.mp4",
+    "poster": "",
+    "caption": ""
+  },
+  {
+    "title": "Automotive reel 01",
+    "category": "automotive",
+    "kind": "video",
+    "src": "automotive-1.mp4",
+    "poster": "",
+    "caption": ""
+  },
+  {
+    "title": "Automotive reel 02",
+    "category": "automotive",
+    "kind": "video",
+    "src": "automotive-2.mp4",
+    "poster": "",
+    "caption": ""
+  },
+  {
+    "title": "Restaurant reel 01",
+    "category": "restaurants",
+    "kind": "video",
+    "src": "reel-1.mp4",
+    "poster": "",
+    "caption": ""
+  },
+  {
+    "title": "Restaurant motion reel",
+    "category": "restaurants",
+    "kind": "video",
+    "src": "motion-1.mp4",
+    "poster": "",
+    "caption": ""
+  }
+];
 document.querySelectorAll("[data-brand]").forEach(e=>e.textContent=SETTINGS.brand);
 document.title=SETTINGS.brand+" — Video editing & motion graphics agency";
 document.getElementById("year").textContent=new Date().getFullYear();
@@ -128,7 +191,7 @@ v.addEventListener("loadedmetadata",()=>{if(!started&&v.duration>0)try{v.current
 const cap=()=>{if(done||!v.videoWidth||v.readyState<2)return;try{const c=document.createElement("canvas");c.width=Math.min(v.videoWidth,1280);c.height=Math.round(c.width*v.videoHeight/v.videoWidth);c.getContext("2d").drawImage(v,0,0,c.width,c.height);v.poster=c.toDataURL("image/jpeg",.85);done=1}catch{}};
 v.addEventListener("seeked",cap);v.addEventListener("loadeddata",()=>{if(v.currentTime>0)cap()})}
 const mo="IntersectionObserver"in window?new IntersectionObserver(es=>es.forEach(({target:t,isIntersecting:i})=>{if(!i)return;t.preload="metadata";t.src=t.dataset.src;t.load();mo.unobserve(t)}),{rootMargin:"300px"}):null;
-function renderProject(item,box0){const art=document.createElement("article");art.className="project";if(item.category)art.dataset.category=item.category;
+function renderProject(item,box0){const art=document.createElement("article");art.className="project";if(item.category)art.dataset.category=item.category;art.hidden=item.category!=="real-estate";
 const box=document.createElement("div");box.className="media";
 if(item.src){const m=document.createElement(item.kind==="image"?"img":"video");
 if(item.kind==="image"){m.alt=item.title;m.loading="lazy"}else{m.controls=true;m.playsInline=true;m.preload="none";m.setAttribute("aria-label",item.title);setVideoPreview(m,item);m.addEventListener("play",()=>document.querySelectorAll("video").forEach(o=>{if(o!==m&&!o.muted)o.pause()}))}
@@ -138,13 +201,13 @@ else{box.innerHTML='<div class="placeholder"><small>Portfolio preview</small><st
 const h=document.createElement("h3");h.textContent=item.title;art.append(box,h);
 if(item.caption){const p=document.createElement("p");p.textContent=item.caption;art.append(p)}box0.append(art)}
 const pf=document.getElementById("portfolio");WORK.forEach(i=>renderProject(i,pf));
-pf.querySelectorAll('[data-category="design"]').forEach(c=>c.hidden=true);
+
 document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{
 document.querySelectorAll("[data-filter]").forEach(o=>o.setAttribute("aria-pressed",String(o===b)));
-pf.querySelectorAll(".project").forEach(c=>{const f=b.dataset.filter,ok=f==="video"?(c.dataset.category==="reels"||c.dataset.category==="motion"):c.dataset.category===f;c.hidden=!ok;if(!ok)c.querySelectorAll("video").forEach(v=>v.pause())});pf.scrollTo({left:0})}));
+pf.querySelectorAll(".project").forEach(c=>{const f=b.dataset.filter,ok=c.dataset.category===f;c.hidden=!ok;if(!ok)c.querySelectorAll("video").forEach(v=>v.pause())});pf.scrollTo({left:0})}));
 /* hero reel: muted autoplay loop of the motion piece */
 const hs=document.getElementById("hero-screen"),hv=document.createElement("video");
-Object.assign(hv,{muted:true,loop:true,playsInline:true,autoplay:true,src:WORK[2].src});hv.setAttribute("aria-hidden","true");hv.addEventListener("error",()=>hv.remove());hs.prepend(hv);hv.addEventListener('playing',()=>hs.classList.add('on'));hv.play().catch(()=>{});
+Object.assign(hv,{muted:true,loop:true,playsInline:true,autoplay:true,src:"motion-1.mp4"});hv.setAttribute("aria-hidden","true");hv.addEventListener("error",()=>hv.remove());hs.prepend(hv);hv.addEventListener('playing',()=>hs.classList.add('on'));hv.play().catch(()=>{});
 /* scroll: hero phone progress + statement word reveal */
 const st=document.getElementById("stage"),sp=document.getElementById("stmt");
 sp.innerHTML=sp.textContent.split(" ").map(w=>`<span class="w">${w}</span>`).join(" ");const ws=sp.querySelectorAll(".w");
